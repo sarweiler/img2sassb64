@@ -43,15 +43,8 @@ module.exports = function (grunt) {
           if(grunt.file.exists(fileWithpath)) {
             return '$' + file.replace(/\./, '_') + ': ' + grunt.file.read(fileWithpath, {encoding: null}).toString('base64') + ';';
           }
-          //return "fisch";
         }).join(grunt.util.linefeed);
       }).join(grunt.util.linefeed);
-
-
-      //console.log(src);
-
-      // Handle options.
-      //src += options.punctuation;
 
       // Write the destination file.
       grunt.file.write(file.dest, src + grunt.util.linefeed);
