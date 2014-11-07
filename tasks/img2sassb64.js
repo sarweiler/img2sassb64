@@ -42,9 +42,19 @@ module.exports = function (grunt) {
           if(grunt.file.exists(fileWithpath)) {
 
             var endOfLine = options.sassSyntax ? '' : ';';
+            var varName = '$' + file.replace(/\./, '_');
+            var matchFileExtension = file.match(/.*\.(.+)$/);
+
+            var fileExtension;
+            if(matchFileExtension !== null && typeof matchFileExtension[1]) {
+              fileExtension = matchFileExtension[1].toLowerCase();
+            } else {
+              // Something went wrong.
+              grunt.fail.warn('No file extension for file \'' + file + '\'. No image? Skipping ...');
+            }
 
             // Read file and Base64 encode it
-            return '$' + file.replace(/\./, '_') + ': ' + grunt.file.read(fileWithpath, {encoding: null}).toString('base64') + endOfLine;
+            return varName + ': ' + 'data:image/' + fileExtension + ';base64,' + grunt.file.read(fileWithpath, {encoding: null}).toString('base64') + endOfLine;
           }
         }).join(grunt.util.linefeed);
       }).join(grunt.util.linefeed);

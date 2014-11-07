@@ -32,7 +32,7 @@ exports.img2sassb64 = {
 
     var actual = grunt.file.read('tmp/default_options');
     var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    test.equal(actual, expected, 'should generate a SCSS file with the default files.');
 
     test.done();
   },
@@ -41,7 +41,7 @@ exports.img2sassb64 = {
 
     var actual = grunt.file.read('tmp/custom_options');
     var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    test.equal(actual, expected, 'should generate a SCSS file with the default and custom files.');
 
     test.done();
   },
@@ -50,8 +50,12 @@ exports.img2sassb64 = {
 
     var actual = grunt.file.read('tmp/sass_syntax_options');
     var expected = grunt.file.read('test/expected/sass_syntax_options');
-    test.equal(actual, expected, 'should describe what the sass syntax option(s) behavior is.');
+    test.equal(actual, expected, 'should generate a SASS file with the default files.');
 
     test.done();
   }
+
+
+  // TODO: Test errors
+
 };
