@@ -1,5 +1,5 @@
 /*
- * grunt-img2sassb64
+ * img2sassb64
  * https://github.com/sarweiler/img2sassb64
  *
  * Copyright (c) 2014 Sven Arweiler
@@ -8,12 +8,13 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('img2sassb64', 'Converts image files to Base64 and saves them as SASS variables', function() {
+  grunt.registerMultiTask('img2sassb64', 'Converts image files to Base64 and saves them as SASS variables', function () {
+
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       punctuation: '.',
@@ -21,9 +22,9 @@ module.exports = function(grunt) {
     });
 
     // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
+    this.files.forEach(function (file) {
       // Concat specified files.
-      var src = f.src.filter(function(filepath) {
+      var src = file.src.filter(function (filepath) {
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
@@ -31,7 +32,7 @@ module.exports = function(grunt) {
         } else {
           return true;
         }
-      }).map(function(filepath) {
+      }).map(function (filepath) {
         // Read file source.
         return grunt.file.read(filepath);
       }).join(grunt.util.normalizelf(options.separator));
@@ -40,10 +41,10 @@ module.exports = function(grunt) {
       src += options.punctuation;
 
       // Write the destination file.
-      grunt.file.write(f.dest, src);
+      grunt.file.write(file.dest, src);
 
       // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
+      grunt.log.writeln('File "' + file.dest + '" created.');
     });
   });
 

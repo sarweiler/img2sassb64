@@ -1,5 +1,5 @@
 /*
- * grunt-img2sassb64
+ * img2sassb64
  * https://github.com/sarweiler/img2sassb64
  *
  * Copyright (c) 2014 Sven Arweiler
@@ -8,7 +8,9 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+  // load all npm grunt tasks
+  require('load-grunt-tasks')(grunt);
 
   // Project configuration.
   grunt.initConfig({
@@ -19,7 +21,8 @@ module.exports = function(grunt) {
         '<%= nodeunit.tests %>'
       ],
       options: {
-        jshintrc: '.jshintrc'
+        jshintrc: '.jshintrc',
+        reporter: require('jshint-stylish')
       }
     },
 
@@ -57,11 +60,6 @@ module.exports = function(grunt) {
 
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
-
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.

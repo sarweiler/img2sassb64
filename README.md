@@ -1,20 +1,20 @@
-# grunt-img2sassb64
+# img2sassb64
 
 > Converts image files to Base64 and saves them as SASS variables
 
 ## Getting Started
-This plugin requires Grunt `~0.4.5`
+This plugin requires Grunt.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-img2sassb64 --save-dev
+npm install img2sassb64 --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-img2sassb64');
+grunt.loadNpmTasks('img2sassb64');
 ```
 
 ## The "img2sassb64" task
@@ -32,7 +32,7 @@ grunt.initConfig({
       // Target-specific file lists and/or options go here.
     },
   },
-});
+})
 ```
 
 ### Options
@@ -62,7 +62,7 @@ grunt.initConfig({
       'dest/default_options': ['src/testing', 'src/123'],
     },
   },
-});
+})
 ```
 
 #### Custom Options
@@ -79,7 +79,7 @@ grunt.initConfig({
       'dest/default_options': ['src/testing', 'src/123'],
     },
   },
-});
+})
 ```
 
 ## Contributing
@@ -87,3 +87,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 _(Nothing yet)_
+
+## License
+Copyright (c) 2014 Sven Arweiler. Licensed under the MIT license.
