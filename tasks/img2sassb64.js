@@ -1,5 +1,5 @@
 /*
- * img2sassb64
+ * grunt-img2sassb64
  * https://github.com/sarweiler/img2sassb64
  *
  * Copyright (c) 2014 Sven Arweiler
@@ -30,18 +30,31 @@ module.exports = function (grunt) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
         } else {
+          if (!grunt.file.isDir(filepath)) {
+            grunt.log.warn('Source file "' + filepath + '" is not directory.');
+            return false;
+          }
           return true;
         }
       }).map(function (filepath) {
         // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+        return grunt.file.expand({cwd: filepath}, '*').map(function(file) {
+          var fileWithpath = filepath + '/' + file;
+          if(grunt.file.exists(fileWithpath)) {
+            return '$' + file.replace(/\./, '_') + ': ' + grunt.file.read(fileWithpath, {encoding: null}).toString('base64') + ';';
+          }
+          //return "fisch";
+        }).join(grunt.util.linefeed);
+      }).join(grunt.util.linefeed);
+
+
+      //console.log(src);
 
       // Handle options.
-      src += options.punctuation;
+      //src += options.punctuation;
 
       // Write the destination file.
-      grunt.file.write(file.dest, src);
+      grunt.file.write(file.dest, src + grunt.util.linefeed);
 
       // Print a success message.
       grunt.log.writeln('File "' + file.dest + '" created.');

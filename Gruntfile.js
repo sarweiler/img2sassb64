@@ -33,20 +33,14 @@ module.exports = function (grunt) {
 
     // Configuration to be run (and then tested).
     img2sassb64: {
-      default_options: {
-        options: {
-        },
+      single_file_test: {
         files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
+          'tmp/default_options': ['test/fixtures']
         }
       },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
+      multi_file_test: {
         files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+          'tmp/custom_options': ['test/fixtures', 'test/fixtures_2']
         }
       }
     },
