@@ -1,5 +1,5 @@
 /*
- * grunt-img2sassb64
+ * img2sassb64
  * https://github.com/sarweiler/img2sassb64
  *
  * Copyright (c) 2014 Sven Arweiler
@@ -17,8 +17,7 @@ module.exports = function (grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      sassSyntax: false
     });
 
     // Iterate over all specified file groups.
@@ -41,7 +40,11 @@ module.exports = function (grunt) {
         return grunt.file.expand({cwd: filepath}, '*').map(function(file) {
           var fileWithpath = filepath + '/' + file;
           if(grunt.file.exists(fileWithpath)) {
-            return '$' + file.replace(/\./, '_') + ': ' + grunt.file.read(fileWithpath, {encoding: null}).toString('base64') + ';';
+
+            var endOfLine = options.sassSyntax ? '' : ';';
+
+            // Read file and Base64 encode it
+            return '$' + file.replace(/\./, '_') + ': ' + grunt.file.read(fileWithpath, {encoding: null}).toString('base64') + endOfLine;
           }
         }).join(grunt.util.linefeed);
       }).join(grunt.util.linefeed);

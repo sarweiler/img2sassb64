@@ -1,5 +1,5 @@
 /*
- * grunt-img2sassb64
+ * img2sassb64
  * https://github.com/sarweiler/img2sassb64
  *
  * Copyright (c) 2014 Sven Arweiler
@@ -36,6 +36,14 @@ module.exports = function (grunt) {
       single_file_test: {
         files: {
           'tmp/default_options': ['test/fixtures']
+        }
+      },
+      single_file_test_sass_syntax: {
+        options: {
+          sassSyntax: true
+        },
+        files: {
+          'tmp/sass_syntax_options': ['test/fixtures']
         }
       },
       multi_file_test: {

@@ -44,5 +44,14 @@ exports.img2sassb64 = {
     test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
 
     test.done();
+  },
+  sass_syntax_options: function (test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/sass_syntax_options');
+    var expected = grunt.file.read('test/expected/sass_syntax_options');
+    test.equal(actual, expected, 'should describe what the sass syntax option(s) behavior is.');
+
+    test.done();
   }
 };
