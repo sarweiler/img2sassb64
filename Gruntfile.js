@@ -1,5 +1,5 @@
 /*
- * img2sassb64
+ * grunt-img2sassb64
  * https://github.com/sarweiler/img2sassb64
  *
  * Copyright (c) 2014 Sven Arweiler
