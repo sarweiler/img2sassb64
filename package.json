@@ -1,6 +1,6 @@
 {
   "name": "grunt-img2sassb64",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Converts image files to Base64 and saves them as SASS variables",
   "homepage": "https://github.com/sarweiler/img2sassb64",
   "repository": "git://github.com/sarweiler/img2sassb64.git",
