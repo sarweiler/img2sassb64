@@ -1,6 +1,6 @@
 # img2sassb64
 
-> Converts image files to Base64 and saves them as SASS variables
+> A grunt task to convert image files to Base64 and save them as SASS variables
 
 ## Getting Started
 This plugin requires Grunt.
@@ -79,9 +79,6 @@ grunt.initConfig({
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
 
 ## License
 Copyright (c) 2014 Sven Arweiler. Licensed under the MIT license.
