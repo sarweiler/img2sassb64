@@ -10,7 +10,9 @@
     "url": "http://sba.io/"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "sass",
+    "base64"
   ],
   "main": "Gruntfile.js",
   "engines": {
