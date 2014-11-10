@@ -48,13 +48,13 @@ Set this to `true` if you want to use SASS syntax instead of SCSS syntax.
 
 #### Default Options
 
-In this example all files found in `images/icons` and in `images/more_icons` will be processed using *SCSS* syntax and the output will be written to `dest/_icons.scss`.
+In this example all PNG files found in `images/icons` and all GIF and JPG files in `images/more_icons` will be processed using *SCSS* syntax and the output will be written to `dest/_icons.scss`.
 
 ```js
 grunt.initConfig({
   img2sassb64: {
     files: {
-      'dest/_icons.scss': ['images/icons', 'images/more_icons'],
+      'dest/_icons.scss': ['images/icons/*.png', 'images/more_icons/*.gif', 'images/more_icons/*.jpg'],
     },
   },
 })
@@ -62,7 +62,7 @@ grunt.initConfig({
 
 #### Custom Options
 
-In this example all files found in `images/icons` and in `images/more_icons` will be processed using *SASS* syntax and the output will be written to `dest/_icons.scss`.
+In this example all PNG files found in `images/icons` and all GIF and JPG files in `images/more_icons` will be processed using *SASS* syntax and the output will be written to `dest/_icons.scss`.
 
 ```js
 grunt.initConfig({
@@ -71,7 +71,7 @@ grunt.initConfig({
       sassSyntax: true
     },
     files: {
-      'dest/_icons.scss': ['images/icons', 'images/more_icons'],
+      'dest/_icons.scss': ['images/icons/*.png', 'images/more_icons/*.gif', 'images/more_icons/*.jpg'],
     },
   },
 })

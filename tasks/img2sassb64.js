@@ -29,34 +29,41 @@ module.exports = function (grunt) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
         } else {
-          if (!grunt.file.isDir(filepath)) {
+          /*if (!grunt.file.isDir(filepath)) {
             grunt.log.warn('Source file "' + filepath + '" is not directory.');
             return false;
-          }
+          }*/
           return true;
         }
       }).map(function (filepath) {
         // Read file source.
-        return grunt.file.expand({cwd: filepath}, '*').map(function(file) {
-          var fileWithpath = filepath + '/' + file;
-          if(grunt.file.exists(fileWithpath)) {
+        if(grunt.file.exists(filepath)) {
 
-            var endOfLine = options.sassSyntax ? '' : ';';
-            var varName = '$' + file.replace(/\./, '_');
-            var matchFileExtension = file.match(/.*\.(.+)$/);
+          var endOfLine = options.sassSyntax ? '' : ';';
 
-            var fileExtension;
-            if(matchFileExtension !== null && typeof matchFileExtension[1]) {
-              fileExtension = matchFileExtension[1].toLowerCase();
-            } else {
-              // Something went wrong.
-              grunt.fail.warn('No file extension for file \'' + file + '\'. No image? Skipping ...');
-            }
-
-            // Read file and Base64 encode it
-            return varName + ': ' + 'data:image/' + fileExtension + ';base64,' + grunt.file.read(fileWithpath, {encoding: null}).toString('base64') + endOfLine;
+          var fileName;
+          var fileNameMatch = filepath.match(/.*\/(.+$)/);
+          if(fileNameMatch !== null && typeof fileNameMatch[1]) {
+            fileName = fileNameMatch[1].toLowerCase();
+          } else {
+            // Something went wrong.
+            grunt.fail.warn('No file name for file \'' + filepath + '\'. Skipping ...');
           }
-        }).join(grunt.util.linefeed);
+
+          var varName = '$' + fileName.replace(/\./, '_');
+          var matchFileExtension = fileName.match(/.*\.(.+)$/);
+
+          var fileExtension;
+          if(matchFileExtension !== null && typeof matchFileExtension[1]) {
+            fileExtension = matchFileExtension[1].toLowerCase();
+          } else {
+            // Something went wrong.
+            grunt.fail.warn('No file extension for file \'' + filepath + '\'. Cannot determine image format. Skipping ...');
+          }
+
+          // Read file and Base64 encode it
+          return varName + ': ' + 'data:image/' + fileExtension + ';base64,' + grunt.file.read(filepath, {encoding: null}).toString('base64') + endOfLine;
+        }
       }).join(grunt.util.linefeed);
 
       // Write the destination file.

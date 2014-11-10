@@ -33,22 +33,30 @@ module.exports = function (grunt) {
 
     // Configuration to be run (and then tested).
     img2sassb64: {
-      single_file_test: {
+      single_file_scss_test: {
         files: {
-          'tmp/default_options': ['test/fixtures']
+          'tmp/single_file_scss': ['test/fixtures/123.png']
         }
       },
-      single_file_test_sass_syntax: {
+      single_file_sass_test: {
         options: {
           sassSyntax: true
         },
         files: {
-          'tmp/sass_syntax_options': ['test/fixtures']
+          'tmp/single_file_sass': ['test/fixtures/123.png']
         }
       },
-      multi_file_test: {
+      multi_file_scss_test: {
         files: {
-          'tmp/custom_options': ['test/fixtures', 'test/fixtures_2']
+          'tmp/multi_file_scss': ['test/fixtures/*.png', 'test/fixtures/*.jpg', 'test/fixtures/*.gif', 'test/fixtures_2/*.jpg']
+        }
+      },
+      multi_file_sass_test: {
+        options: {
+          sassSyntax: true
+        },
+        files: {
+          'tmp/multi_file_sass': ['test/fixtures/*.png', 'test/fixtures/*.jpg', 'test/fixtures/*.gif', 'test/fixtures_2/*.jpg']
         }
       }
     },

@@ -27,35 +27,40 @@ exports.img2sassb64 = {
     // setup here if necessary
     done();
   },
-  default_options: function (test) {
+  single_file_scss: function (test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should generate a SCSS file with the default files.');
+    var actual = grunt.file.read('tmp/single_file_scss');
+    var expected = grunt.file.read('test/expected/single_file_scss');
+    test.equal(actual, expected, 'should generate a SCSS file with one file.');
 
     test.done();
   },
-  custom_options: function (test) {
+  multi_file_scss: function (test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should generate a SCSS file with the default and custom files.');
+    var actual = grunt.file.read('tmp/multi_file_scss');
+    var expected = grunt.file.read('test/expected/multi_file_scss');
+    test.equal(actual, expected, 'should generate a SCSS file with multiple files and file formats.');
 
     test.done();
   },
-  sass_syntax_options: function (test) {
+  single_file_sass: function (test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/sass_syntax_options');
-    var expected = grunt.file.read('test/expected/sass_syntax_options');
-    test.equal(actual, expected, 'should generate a SASS file with the default files.');
+    var actual = grunt.file.read('tmp/single_file_sass');
+    var expected = grunt.file.read('test/expected/single_file_sass');
+    test.equal(actual, expected, 'should generate a SASS file with one file.');
+
+    test.done();
+  },
+  multi_file_sass: function (test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/multi_file_sass');
+    var expected = grunt.file.read('test/expected/multi_file_sass');
+    test.equal(actual, expected, 'should generate a SCSS file with multiple files and file formats.');
 
     test.done();
   }
-
-
-  // TODO: Test errors
-
 };
