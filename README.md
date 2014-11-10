@@ -1,6 +1,13 @@
 # img2sassb64
 
-> A grunt task to convert image files to Base64 and save them as SASS variables
+> A grunt task to convert image files to Base64 and save them as SCSS or SASS variables in a single file.
+
+If you save the generated file as a partial (e.g. `_icons.scss`) you can easily import the file to your SCSS or SASS file and access the graphics via the variable names.
+
+Variable names will be the file names with '.' replaced by '_'. For example, `icon.png` will be `$icon_png`.
+
+Use this plugin together with a watch to have your graphics processed as soon as you place them in the given directory.
+
 
 ## Getting Started
 This plugin requires Grunt.
@@ -76,6 +83,12 @@ grunt.initConfig({
   },
 })
 ```
+
+## Release History
+
+* 0.1.0 Changed directory input to file input to be more flexible
+* 0.0.4 First version
+
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
