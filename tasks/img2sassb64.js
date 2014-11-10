@@ -62,7 +62,7 @@ module.exports = function (grunt) {
           }
 
           // Read file and Base64 encode it
-          return varName + ': ' + 'data:image/' + fileExtension + ';base64,' + grunt.file.read(filepath, {encoding: null}).toString('base64') + endOfLine;
+          return varName + ': ' + '"data:image/' + fileExtension + ';base64,' + grunt.file.read(filepath, {encoding: null}).toString('base64') + '"' + endOfLine;
         }
       }).join(grunt.util.linefeed);
 
