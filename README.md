@@ -86,6 +86,7 @@ grunt.initConfig({
 
 ## Release History
 
+* 0.1.1 Updated documentation
 * 0.1.0 Changed directory input to file input to be more flexible
 * 0.0.4 First version
 
