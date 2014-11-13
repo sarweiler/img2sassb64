@@ -54,7 +54,7 @@ Set this to `true` if you want to use SASS syntax instead of SCSS syntax.
 Type: `String`
 Default value: `_`
 
-Set a string to replace `@` in file names with. For example `img@2x.jpg` will be stored in a variable named `$img_2x_jpg` when using the default options.
+Set a string to replace `@` in file names with. For example `img@2x.jpg` will be stored in a variable named `$img_2x_jpg` when using the default.
 
 
 ### Usage Examples
