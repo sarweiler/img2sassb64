@@ -1,3 +1,4 @@
 $123_png: "data:image/png;base64,MSAyIDM="
+$img_2x_jpg: "data:image/jpg;base64,aW1hZ2Ugd2l0aCBAIGluIGZpbGVuYW1lCg=="
 $testing_gif: "data:image/gif;base64,VGVzdGluZw=="
 $test2_jpg: "data:image/jpg;base64,VGVzdCAyCjEyMzQ1Njc4"

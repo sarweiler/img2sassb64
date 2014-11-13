@@ -62,5 +62,14 @@ exports.img2sassb64 = {
     test.equal(actual, expected, 'should generate a SCSS file with multiple files and file formats.');
 
     test.done();
+  },
+  multi_file_atsign_test: function (test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/multi_file_atsign_scss');
+    var expected = grunt.file.read('test/expected/multi_file_atsign_scss');
+    test.equal(actual, expected, 'should generate a SCSS file with multiple files and file formats and replace the "@" in the file name with "AT".');
+
+    test.done();
   }
 };

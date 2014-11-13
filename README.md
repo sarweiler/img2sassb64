@@ -50,6 +50,12 @@ Default value: `false`
 
 Set this to `true` if you want to use SASS syntax instead of SCSS syntax.
 
+#### options.replaceAtSign
+Type: `String`
+Default value: `_`
+
+Set a string to replace `@` in file names with. For example `img@2x.jpg` will be stored in a variable named `$img_2x_jpg` when using the default options.
+
 
 ### Usage Examples
 
@@ -75,17 +81,19 @@ In this example all PNG files found in `images/icons` and all GIF and JPG files 
 grunt.initConfig({
   img2sassb64: {
     options: {
-      sassSyntax: true
+      sassSyntax: true,
+      replaceAtSign: 'AT'
     },
     files: {
       'dest/_icons.scss': ['images/icons/*.png', 'images/more_icons/*.gif', 'images/more_icons/*.jpg'],
-    },
-  },
+    }
+  }
 })
 ```
 
 ## Release History
 
+* 0.1.3 Added option to replace @ with string in file name (default: "_")
 * 0.1.2 Fixed missing quotes in generated output
 * 0.1.1 Updated documentation
 * 0.1.0 Changed directory input to file input to be more flexible

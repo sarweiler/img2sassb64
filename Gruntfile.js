@@ -58,6 +58,14 @@ module.exports = function (grunt) {
         files: {
           'tmp/multi_file_sass': ['test/fixtures/*.png', 'test/fixtures/*.jpg', 'test/fixtures/*.gif', 'test/fixtures_2/*.jpg']
         }
+      },
+      multi_file_atsign_test: {
+        options: {
+          replaceAtSign: "AT"
+        },
+        files: {
+          'tmp/multi_file_atsign_scss': ['test/fixtures/*.png', 'test/fixtures/*.jpg', 'test/fixtures/*.gif', 'test/fixtures_2/*.jpg']
+        }
       }
     },
 

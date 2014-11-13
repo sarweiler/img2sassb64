@@ -17,7 +17,8 @@ module.exports = function (grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      sassSyntax: false
+      sassSyntax: false,
+      replaceAtSign: "_"
     });
 
     // Iterate over all specified file groups.
@@ -50,7 +51,7 @@ module.exports = function (grunt) {
             grunt.fail.warn('No file name for file \'' + filepath + '\'. Skipping ...');
           }
 
-          var varName = '$' + fileName.replace(/\./, '_');
+          var varName = '$' + fileName.replace(/\./, '_').replace(/@/, options.replaceAtSign);
           var matchFileExtension = fileName.match(/.*\.(.+)$/);
 
           var fileExtension;
