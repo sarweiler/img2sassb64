@@ -30,10 +30,6 @@ module.exports = function (grunt) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
         } else {
-          /*if (!grunt.file.isDir(filepath)) {
-            grunt.log.warn('Source file "' + filepath + '" is not directory.');
-            return false;
-          }*/
           return true;
         }
       }).map(function (filepath) {
